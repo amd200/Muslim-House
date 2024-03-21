@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="border-top">
+    <footer className="border-top mt-3">
       <div className="container p-3 pt-5">
         <div className="row">
           <div className="col-lg-3">
@@ -56,7 +56,7 @@ function Footer() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/Reciters" className="nav-link  m-0 ">
+                  <NavLink to="/quran" className="nav-link  m-0 ">
                     القرأن
                   </NavLink>
                 </li>

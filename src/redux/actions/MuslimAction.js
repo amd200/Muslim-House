@@ -66,7 +66,10 @@ export const getAllRecitersAudio = (id) => {
       const server =
         res.data.reciters[0]?.moshaf.find(
           (item) => item.name === "حفص عن عاصم - مرتل"
-        )?.server || "";
+        )?.server ||
+        res.data.reciters[0]?.moshaf[0]?.server ||
+        "";
+
       dispatch({
         type: audio,
         data: server,

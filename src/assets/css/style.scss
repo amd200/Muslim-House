@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap");
+@font-face {
+  font-family: "Quran Reguler";
+  src: url("../fonts/ayat-quran-286-font/AyatQuran8-Yqz0j.ttf");
+}
+@font-face {
+  font-family: "Quran Reguler2";
+  src: url("../fonts/QuranRegular.ttf");
+}
+@font-face {
+  font-family: "Noto Regular";
+  src: url("../fonts/NotoNastaliqUrdu-Regular.ttf");
+
+  .noto-regular {
+    font-family: "Noto Regular" !important;
+  }
+}
+.font-quran {
+  font-family: "Quran Regule" !important;
+}
+.font-quran2 {
+  font-family: "Quran Regule2" !important;
+}
+:root {
+  --bg-color: #f4f6fa;
+  --hover-links-nav: #e1f1f1;
+  --border-color: #e1f1f1;
+  --green-color: #00977b;
+  --text-color: #3e4c52;
+  --color-links-nav: #0000008c;
+  --white: #fff;
+}
+.dark {
+  --text-color: #fff;
+  --bg-color: #1d2239;
+  --color-links-nav: #fff;
+  --hover-links-nav: #292e48;
+  --border-color: #404762;
+  --white: #292e48;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Changa", sans-serif;
+  background-color: var(--bg-color) !important;
+
+  .services {
+    border: 1px solid var(--border-color);
+    p {
+      color: #aabac7;
+    }
+  }
+  .slide {
+    background-color: var(--white) !important;
+    p {
+      font-family: "Quran Reguler";
+      font-size: 28px;
+      color: var(--text-color);
+    }
+  }
+  .cards {
+    .card {
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      background-color: transparent;
+    }
+  }
+}
+.home-page {
+  .title-website {
+    background-color: var(--white) !important;
+    border: 1px solid var(--border-color);
+    h1 {
+      color: var(--green-color);
+    }
+    p {
+      color: var(--text-color);
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+  .title-section {
+    .title {
+      display: flex;
+      align-items: center;
+      h2 {
+        font-weight: 400;
+        font-size: 28px;
+        color: var(--text-color);
+      }
+      span {
+        background-color: var(--green-color);
+        width: 14.41px;
+        height: 17px;
+        display: block;
+        margin-left: 8px;
+      }
+    }
+    .info {
+      p {
+        color: #aabac7;
+        font-size: 16px;
+        font-weight: 200;
+      }
+    }
+  }
+}
+.surah {
+  background-color: var(--white) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  h1 {
+    font-size: 22px;
+    color: var(--text-color);
+  }
+  p {
+    color: var(--green-color);
+  }
+}
+nav {
+  .navbar-brand {
+    font-family: "Noto Regular";
+    color: var(--text-color) !important;
+  }
+  ul {
+    li {
+      padding: 5px !important;
+      background-color: transparent !important;
+      a {
+        color: var(--color-links-nav) !important;
+        background-color: transparent !important;
+      }
+      .point {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #d53c3c;
+        border-radius: 50%;
+        transition: 0.3s;
+
+        &.active {
+          animation: 1s infinite alternate point;
+          transition: 0.3s;
+        }
+      }
+      &:hover {
+        background-color: var(--hover-links-nav) !important;
+        transition: 0.3s;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+#quran {
+  color: var(--text-color);
+  background-color: var(--white);
+
+  p {
+    line-height: 69px;
+    font-size: 28px;
+    span.quran {
+      font-family: "Quran Reguler", serif !important;
+    }
+    span.icon {
+      font-family: "Quran Reguler2" !important;
+    }
+  }
+}
+.name {
+  color: var(--text-color);
+}
+
+@keyframes point {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.azkars {
+  .item {
+    padding: 15px;
+    & > p {
+      color: var(--text-color);
+    }
+    .zekr {
+      font-family: "Quran Reguler2", serif !important;
+      font-size: 24px;
+      margin-bottom: 15px !important;
+      margin-top: 35px !important;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+    .zekr-button {
+      border: 2px solid lightblue;
+      background-color: transparent;
+      border-radius: 20px;
+      padding: 10px;
+      color: var(--text-color);
+      width: 100%;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      &.done {
+        cursor: auto;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+footer {
+  h5 {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+}
+
+.azkar-section {
+  a {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+  }
+}
+
+.audio-surah {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}

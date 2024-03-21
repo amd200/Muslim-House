@@ -1,0 +1,128 @@
+/* start role */
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Changa", sans-serif !important;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.colorlogo {
+  filter: invert(1);
+  -webkit-filter: invert(1);
+}
+:root {
+  --bg-color: #f4f6fa;
+  --navbar-color: #e1f1f1;
+  --hover-bg: #e1f1f1;
+  --text-color: #3e4c52;
+  --bg-note: #fff;
+  --color-note: #4f4f4f;
+  --ddd: #111;
+  --item-bg: #fff;
+  --border-color: #e1f1f1;
+}
+.dark {
+  --bg-color: #1d2239;
+  --bg-note: #292e48;
+  --text-color: #fcfdff;
+  --border-color: #404762;
+  --item-bg: #292e48;
+  --hover-bg: #404762;
+  --ddd: #ddd;
+}
+body {
+  background-color: var(--bg-color);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--border-color);
+}
+.list-color li {
+  padding: 5px;
+}
+.list-color li:hover {
+  background-color: var(--hover-bg);
+  /* color: #000 !important; */
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.list-color li a {
+  color: var(--text-color) !important;
+  font-weight: 300 !important;
+}
+.dropdown-menu {
+  background-color: var(--item-bg) !important;
+  text-align: right;
+  border: 1px solid var(--border-color) !important;
+  right: 0 !important;
+  padding: 4px;
+}
+.dropdown-menu li {
+  margin-bottom: 10px !important;
+}
+.dropdown-menu li a {
+  color: var(--text-color) !important;
+  font-weight: 300 !important;
+  padding: 6px 12px !important;
+  font-size: 18px !important;
+  font-size: 15px !important;
+}
+
+.dropdown-menu li a:hover {
+  background-color: transparent !important;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+/* end role */
+
+.box {
+  background-color: var(--bg-note);
+  color: var(--text-color);
+  width: 85%;
+  height: fit-content;
+  margin: auto;
+  padding: 20px;
+  direction: rtl;
+}
+
+span.icon {
+  font-family: "Quran Reguler2" !important;
+}
+.title {
+  color: var(--text-color);
+}
+#text2 span.quran {
+  font-family: "Quran Reguler", serif !important;
+  line-height: 75px;
+  font-size: 32px;
+  user-select: none;
+}
+#text2 span.quran {
+  font-family: "Quran Reguler", serif !important;
+  line-height: 75px;
+  font-size: 32px;
+  user-select: none;
+}
+
+.navbar-brand {
+  font-family: "Noto", serif !important;
+  font-size: 28px;
+  color: var(--text-color) !important;
+}
+@font-face {
+  font-family: "Noto";
+  src: url("assets/fonts/NotoNastaliqUrdu-Regular.ttf");
+}

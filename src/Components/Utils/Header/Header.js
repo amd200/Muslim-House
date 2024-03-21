@@ -76,9 +76,9 @@ const Header = () => {
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/src/assets/مخطط الصلاة.pdf" download={true}>
+              <a className="nav-link" href="/src/assets/مخطط الصلاة.pdf" download={true}>
                 مخطط الصلاة
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="#" onClick={toggleAudio}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import pdf from "../../../assets/مخطط الصلاة.pdf"
 const Header = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
@@ -76,7 +76,7 @@ const Header = () => {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/src/assets/مخطط الصلاة.pdf" download={true}>
+              <a className="nav-link" href={pdf} download={true}>
                 مخطط الصلاة
               </a>
             </li>

@@ -5,3 +5,5 @@ export const azkarEvening = "azkarEvening";
 export const quotes = "quotes";
 export const reciters = "reciters";
 export const audio = "audio";
+export const search = "search";
+export const videosYoutube = "videosYoutube";

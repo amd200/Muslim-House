@@ -4,7 +4,9 @@ import {
   azkarMorning,
   quotes,
   reciters,
+  search,
   surah,
+  videosYoutube,
 } from "../types/Types";
 import azkars from "../Api/azkar.json";
 import quotesJson from "../Api/Quotes.json";
@@ -48,7 +50,7 @@ export const Quotes = () => {
 export const getAllReciters = () => {
   return async (dispatch) => {
     const res = await axios.get(
-      "https://www.mp3quran.net/api/v3/reciters?language=en"
+      "https://www.mp3quran.net/api/v3/reciters?language=ar&rewaya=1"
     );
     dispatch({
       type: reciters,
@@ -56,23 +58,53 @@ export const getAllReciters = () => {
     });
   };
 };
-export const getAllRecitersAudio = (id) => {
+export const getReciterAudios = (id) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(
-        `https://www.mp3quran.net/api/v3/reciters?language=en&reciter=${id}`
+        `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}&rewaya=1`
       );
 
-      const server =
-        res.data.reciters[0]?.moshaf.find(
-          (item) => item.name === "حفص عن عاصم - مرتل"
-        )?.server ||
-        res.data.reciters[0]?.moshaf[0]?.server ||
-        "";
+      const server = res.data.reciters[0]?.moshaf[0].server || "";
 
       dispatch({
         type: audio,
         data: server,
+      });
+    } catch (error) {
+      console.error("Error fetching reciters audio:", error);
+    }
+  };
+};
+
+export const searchReciters = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(
+        `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}`
+      );
+
+      dispatch({
+        type: search,
+        data: res.data,
+      });
+    } catch (error) {
+      console.error("Error fetching reciters audio:", error);
+    }
+  };
+};
+
+export const youtube = () => {
+  const apiKey = "AIzaSyAWAS18XVcqhSjRhvyzVxqfwBti6WfpEiM";
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL29rqMO4kPatTvtkywUBf-NsaLlhYeWFH&key=${apiKey}`
+      );
+
+      dispatch({
+        type: videosYoutube,
+        data: res.data.items,
       });
     } catch (error) {
       console.error("Error fetching reciters audio:", error);

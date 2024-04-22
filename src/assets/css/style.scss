@@ -256,3 +256,50 @@ footer {
 .rhap_volume-indicator {
   background-color: var(--green-color);
 }
+.stories {
+  .video-list {
+    background-color: #fff;
+    height: 520px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    .video {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: var(--bg-color);
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      img {
+        width: 100px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+      }
+      h3 {
+        color: var(--text-color);
+        font-size: 17px;
+      }
+    }
+  }
+  iframe {
+    width: 100%;
+    height: 520px;
+    @media (max-width: 991px) {
+      height: 300px;
+      margin-top: 50px;
+    }
+  }
+}

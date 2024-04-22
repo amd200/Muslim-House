@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAllRecitersAudio, getSurah } from "../redux/actions/MuslimAction";
+import { getReciterAudios, getSurah } from "../redux/actions/MuslimAction";
 import React, { useEffect, useState } from "react";
 import Audio from "../Components/Audio/Audio";
 
@@ -19,8 +19,8 @@ function Read() {
   const serverAudio = useSelector((state) => state.audio);
   useEffect(() => {
     dispatch(getSurah());
-    dispatch(getAllRecitersAudio(recitersId));
-  }, [dispatch]);
+    dispatch(getReciterAudios(recitersId));
+  }, [dispatch, recitersId]);
 
   useEffect(() => {
     if (data && data.length > 0) {

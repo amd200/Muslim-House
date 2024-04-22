@@ -8,7 +8,7 @@ function Card({ dataReciters, dataAllSurah }) {
       to={
         dataReciters ? `/quran/${dataReciters.id}` : `/quran/${recitersId}/${dataAllSurah.id}`
       }
-      className="col-lg-3 col-8"
+      className="col-lg-3 col-7"
     >
       <div className="surah mb-3 text-center p-3">
         {dataReciters ? (

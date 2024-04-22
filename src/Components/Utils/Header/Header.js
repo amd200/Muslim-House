@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import pdf from "../../../assets/مخطط الصلاة.pdf"
 const Header = () => {
@@ -65,7 +65,7 @@ const Header = () => {
               </li>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
+              <NavLink className="nav-link" to="/stories">
                 قصص الإسلام
               </NavLink>
             </li>

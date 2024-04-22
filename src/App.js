@@ -8,6 +8,7 @@ import Footer from "./Components/Utils/Footer/Footer";
 import Reciters from "./pages/RecitersPage";
 import AudioPage from "./pages/AudioPage";
 import QuranPage from "./pages/QuranPage";
+import Stories from "./pages/Stories";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/AzkarEvening" element={<AzkarEvening />}></Route>
         <Route path="/Reciters" element={<Reciters />}></Route>
         <Route path="/AudioPage" element={<AudioPage />}></Route>
+        <Route path="/stories" element={<Stories />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

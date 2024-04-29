@@ -89,7 +89,8 @@ const Header = () => {
               </NavLink>
               {isAudioPlaying && (
                 <audio
-                  src="https://qurango.net/radio/salma"
+                  // src="https://qurango.net/radio/salma"
+                  src="https://qurango.net/radio/tarateel"
                   controls
                   autoPlay
                   className="position-absolute invisible"

@@ -1,13 +1,17 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import pdf from "../../../assets/مخطط الصلاة.pdf"
+import pdf from "../../../assets/مخطط الصلاة.pdf";
 const Header = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
-  const toggleAudio = () => {
-    setIsAudioPlaying((prevState) => !prevState);
+  const [audio, setAudio] = useState("");
+  const singleClick = () => {
+    setAudio("https://qurango.net/radio/tarateel");
+    setIsAudioPlaying(!isAudioPlaying);
   };
-
+  const doubleClick = () => {
+    setAudio("https://qurango.net/radio/salma");
+    setIsAudioPlaying(!isAudioPlaying);
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light py-4">
       <div className="container py-2">
@@ -81,7 +85,7 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#" onClick={toggleAudio}>
+              <NavLink className="nav-link" to="#" onClick={singleClick} onDoubleClick={doubleClick}>
                 {isAudioPlaying ? "إيقاف الإذاعة" : "تشغيل الإذاعة"}
                 <span
                   className={`point ms-2 ${isAudioPlaying ? "active" : ""}`}
@@ -89,8 +93,7 @@ const Header = () => {
               </NavLink>
               {isAudioPlaying && (
                 <audio
-                  // src="https://qurango.net/radio/salma"
-                  src="https://qurango.net/radio/tarateel"
+                  src={audio}
                   controls
                   autoPlay
                   className="position-absolute invisible"

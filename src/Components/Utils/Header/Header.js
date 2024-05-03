@@ -5,11 +5,11 @@ const Header = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [audio, setAudio] = useState("");
   const singleClick = () => {
-    setAudio("https://qurango.net/radio/tarateel");
+    setAudio("https://qurango.net/radio/salma");
     setIsAudioPlaying(!isAudioPlaying);
   };
   const doubleClick = () => {
-    setAudio("https://qurango.net/radio/salma");
+  setAudio("https://qurango.net/radio/tarateel");
     setIsAudioPlaying(!isAudioPlaying);
   };
   return (

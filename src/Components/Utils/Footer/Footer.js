@@ -56,7 +56,7 @@ function Footer() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/quran" className="nav-link  m-0 ">
+                  <NavLink to="/Reciters" className="nav-link  m-0 ">
                     القرأن
                   </NavLink>
                 </li>

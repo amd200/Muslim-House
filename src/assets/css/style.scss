@@ -23,6 +23,20 @@
   font-family: "Quran Regule2" !important;
 }
 :root {
+  --color-primary: #00977b; /* لون رئيسي */
+  --color-secondary: #e1f1f1; /* لون ثانوي */
+  --color-accent: #fff; /* لون بارز */
+  --color-background: #f4f6fa; /* لون الخلفية */
+  --color-text-primary: #3e4c52; /* لون النص الأساسي */
+  --color-text-secondary: #aabac7; /* لون النص الثانوي */
+  --color-border: #e1f1f1; /* لون الحدود */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* لون الظل */
+  --color-hover: #e1f1f1; /* لون التأثير عند التحويم */
+  --color-link: #0000008c; /* لون الروابط */
+  --color-neutral: #000000; /* لون محايد (أسود في الوضع العادي) */
+}
+
+:root {
   --bg-color: #f4f6fa;
   --hover-links-nav: #e1f1f1;
   --border-color: #e1f1f1;
@@ -32,32 +46,46 @@
   --white: #fff;
 }
 .dark {
-  --text-color: #fff;
   --bg-color: #1d2239;
-  --color-links-nav: #fff;
   --hover-links-nav: #292e48;
   --border-color: #404762;
+  --green-color: #00977b;
+  --text-color: #fff;
+  --color-links-nav: #fff;
   --white: #292e48;
+}
+.dark {
+  --color-primary: #00977b; /* لون رئيسي */
+  --color-secondary: #e1f1f1; /* لون ثانوي */
+  --color-accent: #292e48; /* لون بارز */
+  --color-background: #1d2239; /* لون الخلفية */
+  --color-text-primary: #fff; /* لون النص الأساسي */
+  --color-text-secondary: #aabac7; /* لون النص الثانوي */
+  --color-border: #e1f1f1; /* لون الحدود */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* لون الظل */
+  --color-hover: #292e48; /* لون التأثير عند التحويم */
+  --color-link: #fff; /* لون الروابط */
+  --color-neutral: #fff; /* لون محايد (أسود في الوضع العادي) */
 }
 a {
   text-decoration: none;
 }
 body {
   font-family: "Changa", sans-serif;
-  background-color: var(--bg-color) !important;
+  background-color: var(--color-background) !important;
 
   .services {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--color-border);
     p {
       color: #aabac7;
     }
   }
   .slide {
-    background-color: var(--white) !important;
+    background-color: var(--color-accent) !important;
     p {
       font-family: "Quran Reguler";
       font-size: 28px;
-      color: var(--text-color);
+      color: var(--color-text-primary);
     }
   }
   .cards {
@@ -69,13 +97,13 @@ body {
 }
 .home-page {
   .title-website {
-    background-color: var(--white) !important;
-    border: 1px solid var(--border-color);
+    background-color: var(--color-accent) !important;
+    border: 1px solid var(--color-border);
     h1 {
-      color: var(--green-color);
+      color: var(--color-primary);
     }
     p {
-      color: var(--text-color);
+      color: var(--color-text-primary);
       font-weight: 300;
       font-size: 16px;
     }
@@ -87,10 +115,10 @@ body {
       h2 {
         font-weight: 400;
         font-size: 28px;
-        color: var(--text-color);
+        color: var(--color-text-primary);
       }
       span {
-        background-color: var(--green-color);
+        background-color: var(--color-primary);
         width: 14.41px;
         height: 17px;
         display: block;
@@ -105,31 +133,40 @@ body {
       }
     }
   }
+  .ayah {
+    #text {
+      border: 1px solid var(--color-border);
+      color: var(--color-text-primary);
+    }
+  }
 }
 .surah {
-  background-color: var(--white) !important;
-  border: 1px solid var(--border-color);
+  background-color: var(--color-accent) !important;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   cursor: pointer;
   h1 {
     font-size: 22px;
-    color: var(--text-color);
+    color: var(--color-text-primary);
   }
   p {
-    color: var(--green-color);
+    color: var(--color-primary);
   }
 }
 nav {
   .navbar-brand {
     font-family: "Noto Regular";
-    color: var(--text-color) !important;
+    color: var(--color-text-primary) !important;
   }
   ul {
+    &.dropdown-menu {
+      background-color: var(--color-accent) !important;
+    }
     li {
       padding: 5px !important;
       background-color: transparent !important;
       a {
-        color: var(--color-links-nav) !important;
+        color: var(--color-link) !important;
         background-color: transparent !important;
       }
       .point {
@@ -146,7 +183,7 @@ nav {
         }
       }
       &:hover {
-        background-color: var(--hover-links-nav) !important;
+        background-color: var(--color-hover) !important;
         transition: 0.3s;
         border-radius: 5px;
       }
@@ -155,8 +192,8 @@ nav {
 }
 
 #quran {
-  color: var(--text-color);
-  background-color: var(--white);
+  color: var(--color-text-primary);
+  background-color: var(--color-accent);
 
   p {
     line-height: 69px;
@@ -170,7 +207,7 @@ nav {
   }
 }
 .name {
-  color: var(--text-color);
+  color: var(--color-text-primary);
 }
 
 @keyframes point {
@@ -182,44 +219,67 @@ nav {
   }
 }
 
-.azkars {
-  .item {
-    padding: 15px;
-    & > p {
-      color: var(--text-color);
+.azkars-page {
+  .title {
+    h1 {
+      color: var(--color-neutral);
     }
-    .zekr {
-      font-family: "Quran Reguler2", serif !important;
-      font-size: 24px;
-      margin-bottom: 15px !important;
-      margin-top: 35px !important;
-      font-weight: 500;
-      color: var(--text-color);
+    p {
+      color: var(--color-neutral);
     }
-    .zekr-button {
-      border: 2px solid lightblue;
-      background-color: transparent;
-      border-radius: 20px;
-      padding: 10px;
-      color: var(--text-color);
-      width: 100%;
-      -webkit-border-radius: 20px;
-      -moz-border-radius: 20px;
-      -ms-border-radius: 20px;
-      -o-border-radius: 20px;
-      &.done {
-        cursor: auto;
-        opacity: 0.5;
+  }
+  .azkars {
+    .item {
+      padding: 15px;
+      background-color: var(--color-accent);
+      & > p {
+        color: var(--color-text-primary);
+      }
+      .zekr {
+        font-family: "Quran Reguler2", serif !important;
+        font-size: 24px;
+        margin-bottom: 15px !important;
+        margin-top: 35px !important;
+        font-weight: 500;
+        color: var(--color-text-primary);
+      }
+      .zekr-button {
+        border: 2px solid lightblue;
+        background-color: transparent;
+        border-radius: 20px;
+        padding: 10px;
+        color: var(--color-text-primary);
+        width: 100%;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        &.done {
+          cursor: auto;
+          opacity: 0.5;
+        }
       }
     }
   }
 }
 
 footer {
+  .copyright {
+    color: var(--color-text-primary);
+  }
   h5 {
     font-size: 19px;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--color-text-primary);
+  }
+  .list {
+    ul {
+      li {
+        a {
+          color: var(--color-link) !important;
+        }
+      }
+    }
   }
 }
 
@@ -239,22 +299,22 @@ footer {
   width: 100%;
 }
 .rhap_progress-filled {
-  background-color: var(--green-color);
+  background-color: var(--color-primary);
 }
 .rhap_progress-indicator {
-  background-color: var(--green-color);
+  background-color: var(--color-primary);
 }
 .rhap_main-controls-button {
-  color: var(--green-color);
+  color: var(--color-primary);
 }
 .rhap_repeat-button {
-  color: var(--green-color);
+  color: var(--color-primary);
 }
 .rhap_volume-button {
-  color: var(--green-color);
+  color: var(--color-primary);
 }
 .rhap_volume-indicator {
-  background-color: var(--green-color);
+  background-color: var(--color-primary);
 }
 .stories {
   .video-list {
@@ -270,7 +330,7 @@ footer {
       display: flex;
       align-items: center;
       gap: 15px;
-      background-color: var(--bg-color);
+      background-color: var(--color-background);
       margin: 10px;
       padding: 10px;
       border: 1px solid rgba(0, 0, 0, 0.1);
@@ -289,7 +349,7 @@ footer {
         -o-border-radius: 5px;
       }
       h3 {
-        color: var(--text-color);
+        color: var(--color-text-primary);
         font-size: 17px;
       }
     }

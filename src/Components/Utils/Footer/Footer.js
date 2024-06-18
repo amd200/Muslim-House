@@ -7,7 +7,7 @@ function Footer() {
       <div className="container p-3 pt-5">
         <div className="row">
           <div className="col-lg-3">
-            <p className="save">
+            <p className="copyright">
               لا يوجد حقوق على أي مادة مستخدمة في الموقع، يمكنك إعادة استخدامها
               كما تشاء بدون الرجوع إلينا.
             </p>
@@ -56,7 +56,7 @@ function Footer() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/Reciters" className="nav-link  m-0 ">
+                  <NavLink to="/quran" className="nav-link  m-0 ">
                     القرأن
                   </NavLink>
                 </li>

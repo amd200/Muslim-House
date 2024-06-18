@@ -16,7 +16,7 @@ function QuranPage() {
     <div className="content">
       <div className="container mt-4">
         <div className="row justify-content-center" id="surahs">
-          {loading == false ? (
+          {loading === false ? (
             AllSurah ? (
               AllSurah.map((item, i) => <Card key={i} dataAllSurah={item} />)
             ) : (

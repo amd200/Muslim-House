@@ -33,11 +33,11 @@ function AzkarMorning() {
     <div className="azkars-page">
       <section className="azkars">
         <div className="container text-center mt-5">
-          <div className="text">
-            <h1 className="mb-4 color">
+          <div className="title">
+            <h1 className="mb-4">
               {azkar && azkar.length > 0 && azkar[0].category}
             </h1>
-            <p className="h4 mb-4 color">عددها {azkar.length} ذكر</p>
+            <p className="h4 mb-4 ">عددها {azkar.length} ذكر</p>
           </div>
           <div className="row">
             {azkar &&

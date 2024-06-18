@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 
-function Card({ dataReciters, dataAllSurah }) {
+function Card({ dataReciters, dataAllSurah, index }) {
   const { recitersId } = useParams();
   return (
     <NavLink

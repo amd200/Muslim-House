@@ -25,9 +25,8 @@ function Ayah() {
       />
       <p
         id="text"
-        className="text-center bg-white py-4 rounded fs-2 px-2 "
+        className="text-center  py-4 rounded fs-2 px-2 "
         style={{
-          color: "#3e4c52",
           fontWeight: "500",
           fontFamily: "Quran Reguler2",
         }}

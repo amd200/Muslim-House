@@ -31,9 +31,10 @@ function AzkarEvening() {
   };
 
   return (
-    <section className="azkars">
+    <main className="azkars-page">
+        <section className="azkars">
       <div className="container text-center mt-5">
-        <div className="text">
+        <div className="title">
           <h1 className="mb-4 color">
             {azkar && azkar.length > 0 && azkar[0].category}
           </h1>
@@ -56,6 +57,8 @@ function AzkarEvening() {
         </div>
       </div>
     </section>
+    </main>
+  
   );
 }
 

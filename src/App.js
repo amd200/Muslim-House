@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Header from "./Components/Utils/Header/Header";
+import Navbar from "./Components/Utils/Navbar/Navbar";
 import Read from "./pages/Read";
 import AzkarMornig from "./pages/AzkarMorning";
 import AzkarEvening from "./pages/AzkarEvening";
@@ -12,7 +12,7 @@ import Stories from "./pages/Stories";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/quran/:recitersId" element={<QuranPage />}></Route>

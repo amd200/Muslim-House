@@ -3,7 +3,7 @@ import React from "react";
 function Zekr({ azkar, index, handleDecrement }) {
   return (
     <div className="col-12">
-      <div className="item rounded bg-white mb-4">
+      <div className="item rounded  mb-4">
         <p className="text-start m-2 border-bottom pb-3">
           التكرار: {azkar.defaultCount}
         </p>

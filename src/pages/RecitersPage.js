@@ -17,7 +17,7 @@ function RecitersPage() {
         <div className="row justify-content-center" id="reciters">
           {loading === false ? (
             reciters && reciters.length >= 1 ? (
-              reciters.map((item, i) => <Card key={i} dataReciters={item} />)
+              reciters.map((item, i) => <Card key={i} dataReciters={item} index={i} />)
             ) : (
               <h4>لا يوجد قراء</h4>
             )

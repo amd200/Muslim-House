@@ -6,7 +6,7 @@ import Audio from "../Components/Audio/Audio";
 
 function Read() {
   const [ayahs, setAyahs] = useState([]);
-  let { surahId, recitersId } = useParams();
+  let { surahId, recitersId, riwayatId } = useParams();
   if (surahId < 10) {
     surahId = `00${surahId}`;
   } else if (surahId < 100) {
@@ -19,7 +19,7 @@ function Read() {
   const serverAudio = useSelector((state) => state.audio);
   useEffect(() => {
     dispatch(getSurah());
-    dispatch(getReciterAudios(recitersId));
+    dispatch(getReciterAudios(recitersId,riwayatId));
   }, [dispatch, recitersId]);
 
   useEffect(() => {

@@ -4,6 +4,7 @@ import {
   azkarMorning,
   quotes,
   reciters,
+  riwayats,
   search,
   surah,
   videosYoutube,
@@ -50,7 +51,7 @@ export const Quotes = () => {
 export const getAllReciters = () => {
   return async (dispatch) => {
     const res = await axios.get(
-      "https://www.mp3quran.net/api/v3/reciters?language=ar&rewaya=1"
+      "https://www.mp3quran.net/api/v3/reciters?language=ar"
     );
     dispatch({
       type: reciters,
@@ -58,15 +59,14 @@ export const getAllReciters = () => {
     });
   };
 };
-export const getReciterAudios = (id) => {
+export const getReciterAudios = (id,riwaya) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(
-        `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}&rewaya=1`
+        `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}&rewaya=${riwaya}`
       );
-
-      const server = res.data.reciters[0]?.moshaf[0].server || "";
-
+      console.log(riwaya)
+      const server = res.data.reciters[0].moshaf.find((item) => item.id == riwaya).server;
       dispatch({
         type: audio,
         data: server,
@@ -77,6 +77,23 @@ export const getReciterAudios = (id) => {
   };
 };
 
+export const getAllRiwayats = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(
+        `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}`
+      );
+
+
+      dispatch({
+        type: riwayats,
+        data: res.data,
+      });
+    } catch (error) {
+      console.error("Error fetching reciters audio:", error);
+    }
+  };
+};
 export const searchReciters = (id) => {
   return async (dispatch) => {
     try {

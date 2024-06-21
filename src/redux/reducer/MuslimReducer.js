@@ -4,6 +4,7 @@ import {
   azkarMorning,
   quotes,
   reciters,
+  riwayats,
   search,
   surah,
   videosYoutube,
@@ -15,6 +16,7 @@ const initialState = {
   azkar: [],
   quotes: [],
   reciters: [],
+  riwayats: [],
   youtube: [],
   audio: "",
   loading: true,
@@ -47,6 +49,12 @@ export const MuslimReducer = (state = initialState, action) => {
       return {
         ...state,
         reciters: action.data,
+        loading: false,
+      };
+      case riwayats:
+      return {
+        ...state,
+        riwayats: action.data,
         loading: false,
       };
     case audio:

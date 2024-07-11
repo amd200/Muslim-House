@@ -19,8 +19,9 @@ function RecitersPage() {
             reciters && reciters.length >= 1 ? (
               reciters.map((item, i) => <Card key={i} dataReciters={item} index={i} />)
             ) : (
-              <h4>لا يوجد قراء</h4>
-            )
+              <div class="spinner-border text-success my-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>            )
           ) : (
             <div class="spinner-border text-success my-5" role="status">
               <span class="visually-hidden">Loading...</span>

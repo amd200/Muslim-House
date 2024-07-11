@@ -18,7 +18,11 @@ function RiwayatsPage() {
     <div className="content">
       <div className="container mt-4">
         <div className="row justify-content-center" id="reciters">
-          {loading === false && riwayats && riwayats.length >= 1 && foundRiwayat.moshaf.map((item, i) => <Card dataRiwayats={item} />)}
+          {!loading && riwayats && riwayats.length >= 1 && foundRiwayat && foundRiwayat.moshaf ? (
+            foundRiwayat.moshaf.map((item, i) => <Card key={i} dataRiwayats={item} />)
+          ) : <div class="spinner-border text-success my-5" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>}
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ function Read() {
   const serverAudio = useSelector((state) => state.audio);
   useEffect(() => {
     dispatch(getSurah());
-    dispatch(getReciterAudios(recitersId,riwayatId));
+    dispatch(getReciterAudios(recitersId, riwayatId));
   }, [dispatch, recitersId]);
 
   useEffect(() => {
@@ -32,15 +32,18 @@ function Read() {
       <h3 className="name text-center">سورة {ayahs.name}</h3>
       <div id="quran" className=" p-3 mt-4">
         <p id="text2">
-          {ayahs.verses &&
+          {ayahs.verses ? (
             ayahs.verses.map((verse) => (
               <React.Fragment key={verse.id}>
                 <span className="quran">{verse.text}</span>
-                <span className="icon mx-3">{` \ufd3f${verse.id.toLocaleString(
-                  "AR-EG"
-                )}\ufd3e `}</span>
+                <span className="icon mx-3">{` \ufd3f${verse.id.toLocaleString("AR-EG")}\ufd3e `}</span>
               </React.Fragment>
-            ))}
+            ))
+          ) : (
+            <div class="spinner-border text-success my-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          )}
         </p>
       </div>
       <Audio src={serverAudio + surahId + `.mp3`} />

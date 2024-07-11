@@ -36,24 +36,24 @@
   --color-neutral: #000000; /* لون محايد (أسود في الوضع العادي) */
 }
 
-:root {
-  --bg-color: #f4f6fa;
-  --hover-links-nav: #e1f1f1;
-  --border-color: #e1f1f1;
-  --green-color: #00977b;
-  --text-color: #3e4c52;
-  --color-links-nav: #0000008c;
-  --white: #fff;
-}
-.dark {
-  --bg-color: #1d2239;
-  --hover-links-nav: #292e48;
-  --border-color: #404762;
-  --green-color: #00977b;
-  --text-color: #fff;
-  --color-links-nav: #fff;
-  --white: #292e48;
-}
+// :root {
+//   --bg-color: #f4f6fa;
+//   --hover-links-nav: #e1f1f1;
+//   --border-color: #e1f1f1;
+//   --green-color: #00977b;
+//   --text-color: #3e4c52;
+//   --color-links-nav: #0000008c;
+//   --white: #fff;
+// }
+// .dark {
+//   --bg-color: #1d2239;
+//   --hover-links-nav: #292e48;
+//   --border-color: #404762;
+//   --green-color: #00977b;
+//   --text-color: #fff;
+//   --color-links-nav: #fff;
+//   --white: #292e48;
+// }
 .dark {
   --color-primary: #00977b; /* لون رئيسي */
   --color-secondary: #e1f1f1; /* لون ثانوي */
@@ -136,6 +136,7 @@ body {
   .ayah {
     #text {
       border: 1px solid var(--color-border);
+      background-color: var(--color-accent);
       color: var(--color-text-primary);
     }
   }

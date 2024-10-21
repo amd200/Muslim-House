@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.4f604ace.css",
-    "main.js": "/static/js/main.a41611d1.js",
+    "main.css": "/static/css/main.5ab8f609.css",
+    "main.js": "/static/js/main.7c87d564.js",
     "static/js/453.3613dcca.chunk.js": "/static/js/453.3613dcca.chunk.js",
+    "static/media/مخطط الصلاة.pdf": "/static/media/مخطط الصلاة.b1c38522a9d691d2f6d8.pdf",
     "static/media/AyatQuran8-Yqz0j.ttf": "/static/media/AyatQuran8-Yqz0j.4cff916cf56e34f86d51.ttf",
     "static/media/NotoNastaliqUrdu-Regular.ttf": "/static/media/NotoNastaliqUrdu-Regular.4138381e11156c219e98.ttf",
     "static/media/QuranRegular.ttf": "/static/media/QuranRegular.c16323328cff35ea6482.ttf",
+    "static/media/redux.cjs": "/static/media/redux.7edfc461ab353f1712ab.cjs",
     "index.html": "/index.html",
-    "main.4f604ace.css.map": "/static/css/main.4f604ace.css.map",
-    "main.a41611d1.js.map": "/static/js/main.a41611d1.js.map",
+    "main.5ab8f609.css.map": "/static/css/main.5ab8f609.css.map",
+    "main.7c87d564.js.map": "/static/js/main.7c87d564.js.map",
     "453.3613dcca.chunk.js.map": "/static/js/453.3613dcca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f604ace.css",
-    "static/js/main.a41611d1.js"
+    "static/css/main.5ab8f609.css",
+    "static/js/main.7c87d564.js"
   ]
 }

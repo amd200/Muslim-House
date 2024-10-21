@@ -116,7 +116,7 @@ export const youtube = () => {
   return async (dispatch) => {
     try {
       const res = await axios.get(
-        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PL29rqMO4kPatTvtkywUBf-NsaLlhYeWFH&key=${apiKey}`
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLL5-Y6lgu7SJ1qj09HyD-WKMOoXtAKlz6&key=${apiKey}`
       );
 
       dispatch({

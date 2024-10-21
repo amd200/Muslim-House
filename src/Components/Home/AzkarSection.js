@@ -12,8 +12,7 @@ function AzkarSection() {
             to="/AzkarMornig"
             className="card p-2 morning"
             style={{
-              backgroundImage:
-                "url(https://c4.wallpaperflare.com/wallpaper/772/265/137/2d-flat-nature-mountain-top-hd-wallpaper-preview.jpg)",
+              backgroundImage: "url(https://c4.wallpaperflare.com/wallpaper/772/265/137/2d-flat-nature-mountain-top-hd-wallpaper-preview.jpg)",
             }}
           >
             <div className="card-body me-auto">
@@ -27,8 +26,7 @@ function AzkarSection() {
             to="/AzkarEvening"
             className="card p-2 evening"
             style={{
-              backgroundImage:
-                "url(https://e1.pxfuel.com/desktop-wallpaper/351/721/desktop-wallpaper-flat-2d.jpg)",
+              backgroundImage: "url(https://e1.pxfuel.com/desktop-wallpaper/351/721/desktop-wallpaper-flat-2d.jpg)",
             }}
           >
             <div className="card-body me-auto">
@@ -41,8 +39,7 @@ function AzkarSection() {
             to="#"
             className="card p-2 roqia"
             style={{
-              backgroundImage:
-                "url(https://static5.depositphotos.com/1000875/537/v/450/depositphotos_5373161-stock-illustration-rain-vector-image-with-dark.jpg)",
+              backgroundImage: "url(https://static5.depositphotos.com/1000875/537/v/450/depositphotos_5373161-stock-illustration-rain-vector-image-with-dark.jpg)",
             }}
           >
             <div className="card-body me-auto">
@@ -51,7 +48,10 @@ function AzkarSection() {
           </NavLink>
         </div>
       </div>
-      <p className="text-center info mt-3">لا تنسَ الدعاء لي بظهر الغيب.</p>
+      {/* <p className="text-center info mt-3">لا تنسَ الدعاء لي بظهر الغيب.</p> */}
+      <p className="text-center info mt-3">
+        تم تطوير هذا الموقع بواسطة <NavLink style={{ color: "var(--color-primary)" }} to={"https://www.facebook.com/ahmed.elhosseni.71"}>Ahmed Mohamed</NavLink>
+      </p>
     </div>
   );
 }

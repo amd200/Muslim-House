@@ -12,7 +12,7 @@ function AzkarSection() {
             to="/AzkarMornig"
             className="card p-2 morning"
             style={{
-              backgroundImage: "url(https://c4.wallpaperflare.com/wallpaper/772/265/137/2d-flat-nature-mountain-top-hd-wallpaper-preview.jpg)",
+              backgroundImage: "url(https://cdn.pixabay.com/photo/2022/10/07/12/02/sunset-7504891_960_720.jpg)",
             }}
           >
             <div className="card-body me-auto">
@@ -26,7 +26,7 @@ function AzkarSection() {
             to="/AzkarEvening"
             className="card p-2 evening"
             style={{
-              backgroundImage: "url(https://e1.pxfuel.com/desktop-wallpaper/351/721/desktop-wallpaper-flat-2d.jpg)",
+              backgroundImage: "url(https://media.istockphoto.com/id/1666056470/photo/night-sky-with-full-moon.jpg?s=2048x2048&w=is&k=20&c=WtrdjUv5cDZc2-iPMigh1wd8xV6KTfdJVNrvih7gw2Q=)",
             }}
           >
             <div className="card-body me-auto">
@@ -39,7 +39,7 @@ function AzkarSection() {
             to="#"
             className="card p-2 roqia"
             style={{
-              backgroundImage: "url(https://static5.depositphotos.com/1000875/537/v/450/depositphotos_5373161-stock-illustration-rain-vector-image-with-dark.jpg)",
+              backgroundImage: "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtCqy6VVM7BCQxOfvcgHvfJEK4g8nhdmiHfw&s)",
             }}
           >
             <div className="card-body me-auto">

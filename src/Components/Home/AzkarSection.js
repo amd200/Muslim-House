@@ -50,8 +50,8 @@ function AzkarSection() {
       </div>
       {/* <p className="text-center info mt-3">لا تنسَ الدعاء لي بظهر الغيب.</p> */}
       <p className="text-center info mt-3" style={{ color: "var(--color-text-primary)" }}>
-        تم تطوير هذا الموقع بواسطة{" "}
-        <NavLink style={{ color: "var(--color-primary)" }} to={"https://www.facebook.com/ahmed.elhosseni.71"}>
+        تم تطوير هذا الموقع بواسطة
+        <NavLink style={{ color: "var(--color-primary)"  }} className={"ms-1"} to={"https://www.facebook.com/ahmed.elhosseni.71"}>
           Ahmed Mohamed
         </NavLink>
       </p>

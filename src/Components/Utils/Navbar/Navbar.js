@@ -1,51 +1,44 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import pdf from "../../../assets/مخطط الصلاة.pdf";
-const Navbar = () => {
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [audio, setAudio] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+const Navbar = ({ setIsMenuOpen, setAudio, audio, isAudioPlaying, setIsAudioPlaying }) => {
   const singleClick = () => {
-    setAudio("https://qurango.net/radio/salma");
+    if (audio === "") {
+      if (localStorage.getItem("radio")) {
+        setAudio(localStorage.getItem("radio"));
+      } else {
+        setAudio("https://qurango.net/radio/salma");
+      }
+    }
     setIsAudioPlaying(!isAudioPlaying);
   };
-  const doubleClick = () => {
-    setAudio("https://qurango.net/radio/tarateel");
-    setIsAudioPlaying(!isAudioPlaying);
-  };
-  const toggleDarkMode = () => {
-    const currentMode = document.body.classList.toggle("dark");
-    setDarkMode(currentMode);
-    localStorage.setItem("darkMode", currentMode ? "true" : "false");
-  };
+  // const doubleClick = () => {
+  //   setAudio("https://qurango.net/radio/tarateel");
+  //   setIsAudioPlaying(!isAudioPlaying);
+  // };
 
-  // التحقق من الوضع المحفوظ في localStorage عند تحميل الصفحة
+  const openMenu = () => {
+    setIsMenuOpen(true);
+  };
+  const [dark, setDark] = useState();
   useEffect(() => {
     window.onload = () => {
-      const savedDarkMode = localStorage.getItem("darkMode") === "true";
-      if (savedDarkMode) {
-        document.body.classList.add("dark");
+      if (document.body.classList.contains("dark")) {
+        setDark(true);
+      } else {
+        setDark(false);
       }
-      setDarkMode(savedDarkMode);
     };
-  }, []);
+  }, []); 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light py-4">
+    <nav className={`navbar navbar-expand-lg ${dark ? "navbar-dark" : "navbar-light"} py-4`}>
       <div className="container py-2">
         <Link to="/" className="navbar-brand logo">
           مسلم
         </Link>
-        <button
-          className="navbar-toggler shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
+        <button className="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon" style={{ backgroundColor: "var(color-secondary) !important" }}></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav pt-lg-0 pt-2 me-auto mb-2 mb-lg-0">
@@ -58,20 +51,10 @@ const Navbar = () => {
             <li className="nav-item dropdown">
               <li className="nav-item dropdown">
                 <li className="nav-item dropdown">
-                  <NavLink
-                    className="nav-link dropdown-toggle p-0"
-                    to="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
+                  <NavLink className="nav-link dropdown-toggle p-0" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     الأذكار
                   </NavLink>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li className="mb-2 py-2">
                       <NavLink className="dropdown-item" to="/AzkarMornig">
                         أذكار الصباح
@@ -103,31 +86,17 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <NavLink
-                className="nav-link"
-                to="#"
-                onClick={singleClick}
-                onDoubleClick={doubleClick}
-              >
+              <NavLink className="nav-link" to="#" onClick={singleClick}>
                 {isAudioPlaying ? "إيقاف الإذاعة" : "تشغيل الإذاعة"}
-                <span
-                  className={`point ms-2 ${isAudioPlaying ? "active" : ""}`}
-                ></span>
+                <span className={`point ms-2 ${isAudioPlaying ? "active" : ""}`}></span>
               </NavLink>
-              {isAudioPlaying && (
-                <audio
-                  src={audio}
-                  controls
-                  autoPlay
-                  className="position-absolute invisible"
-                ></audio>
-              )}
+              {isAudioPlaying && <audio src={audio} controls autoPlay className="position-absolute invisible"></audio>}
             </li>
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item" id="dark">
-              <NavLink className="nav-link" to="#" onClick={toggleDarkMode}>
-                الوضع الداكن
+              <NavLink className="nav-link settings" to="#" onClick={() => openMenu()}>
+                الاعدادات
               </NavLink>
             </li>
           </ul>

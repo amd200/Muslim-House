@@ -1,14 +1,4 @@
-import {
-  AllSurah,
-  audio,
-  azkarMorning,
-  quotes,
-  reciters,
-  riwayats,
-  search,
-  surah,
-  videosYoutube,
-} from "../types/Types";
+import { AllSurah, audio, azkarMorning, quotes, reciters, riwayats, search, surah, videosYoutube, radios } from "../types/Types";
 
 const initialState = {
   AllSurah: [],
@@ -18,6 +8,7 @@ const initialState = {
   reciters: [],
   riwayats: [],
   youtube: [],
+  radios: [],
   audio: "",
   loading: true,
 };
@@ -51,7 +42,7 @@ export const MuslimReducer = (state = initialState, action) => {
         reciters: action.data,
         loading: false,
       };
-      case riwayats:
+    case riwayats:
       return {
         ...state,
         riwayats: action.data,
@@ -61,6 +52,12 @@ export const MuslimReducer = (state = initialState, action) => {
       return {
         ...state,
         audio: action.data,
+        loading: false,
+      };
+    case radios:
+      return {
+        ...state,
+        radios: action.data,
         loading: false,
       };
     case search:

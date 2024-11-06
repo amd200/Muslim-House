@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useState } from "react"; // استيراد useState
 import Home from "./pages/Home";
 import Navbar from "./Components/Utils/Navbar/Navbar";
 import Read from "./pages/Read";
@@ -10,10 +11,17 @@ import AudioPage from "./pages/AudioPage";
 import QuranPage from "./pages/QuranPage";
 import Stories from "./pages/Stories";
 import RiwayatsPage from "./pages/RiwayatsPage";
+import Sidebar from "./Components/Sidebar/Sidebar";
+
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [audio, setAudio] = useState("");
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar isMenuOpen={isMenuOpen} audio={audio} isAudioPlaying={isAudioPlaying} setIsAudioPlaying={setIsAudioPlaying} setAudio={setAudio} setIsMenuOpen={setIsMenuOpen} />
+      <Sidebar isMenuOpen={isMenuOpen} setIsAudioPlaying={setIsAudioPlaying} setIsMenuOpen={setIsMenuOpen} setAudio={setAudio} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/Reciters" element={<Reciters />}></Route>

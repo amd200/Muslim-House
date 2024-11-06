@@ -7,7 +7,12 @@ function Ayah() {
   const [quotes, setQuotes] = useState([]);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.quotes);
-  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const [randomIndex, setRandomIndex] = useState(0);
+
+  useEffect(() => {
+    const newRandomIndex = Math.floor(Math.random() * quotes.length);
+    setRandomIndex(newRandomIndex);
+  }, [quotes]);
 
   useEffect(() => {
     dispatch(Quotes());
@@ -19,10 +24,7 @@ function Ayah() {
   }, [data]);
   return (
     <div className="ayah w-70 ">
-      <TitleSection
-        name="أدومها وإن قل"
-        note={`سُورَةُ ${quotes.length > 0 && quotes[randomIndex].src}`}
-      />
+      <TitleSection name="أدومها وإن قل" note={`سُورَةُ ${quotes.length > 0 && quotes[randomIndex].src}`} />
       <p
         id="text"
         className="text-center  py-4 rounded fs-2 px-2 "

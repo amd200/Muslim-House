@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react"; // استيراد useState
+import { useState } from "react";
 import Home from "./pages/Home";
 import Navbar from "./Components/Utils/Navbar/Navbar";
 import Read from "./pages/Read";
@@ -12,19 +12,23 @@ import QuranPage from "./pages/QuranPage";
 import Stories from "./pages/Stories";
 import RiwayatsPage from "./pages/RiwayatsPage";
 import Sidebar from "./Components/Sidebar/Sidebar";
-
+import Hearing from "./pages/Hearing";
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [audio, setAudio] = useState("");
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [enableAudioAzan, setEnableAudioAzan] = useState(false);
 
   return (
     <BrowserRouter>
+      <Analytics />
       <Navbar isMenuOpen={isMenuOpen} audio={audio} isAudioPlaying={isAudioPlaying} setIsAudioPlaying={setIsAudioPlaying} setAudio={setAudio} setIsMenuOpen={setIsMenuOpen} />
-      <Sidebar isMenuOpen={isMenuOpen} setIsAudioPlaying={setIsAudioPlaying} setIsMenuOpen={setIsMenuOpen} setAudio={setAudio} />
+      <Sidebar setEnableAudioAzan={setEnableAudioAzan} enableAudioAzan={enableAudioAzan} isMenuOpen={isMenuOpen} setIsAudioPlaying={setIsAudioPlaying} setIsMenuOpen={setIsMenuOpen} setAudio={setAudio} />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home enableAudioAzan={enableAudioAzan} />}></Route>
         <Route path="/Reciters" element={<Reciters />}></Route>
+        <Route path="/Hearing/:surahId" element={<Hearing />}></Route>
         <Route path="/quran/:recitersId/" element={<RiwayatsPage />}></Route>
         <Route path="/quran/:recitersId/:riwayatId" element={<QuranPage />}></Route>
         <Route path="/quran/:recitersId/:riwayatId/:surahId" element={<Read />}></Route>

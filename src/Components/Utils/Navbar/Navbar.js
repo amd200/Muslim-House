@@ -7,7 +7,7 @@ const Navbar = ({ setIsMenuOpen, setAudio, audio, isAudioPlaying, setIsAudioPlay
       if (localStorage.getItem("radio")) {
         setAudio(localStorage.getItem("radio"));
       } else {
-        setAudio("https://qurango.net/radio/tarateel");
+        setAudio("https://qurango.net/radio/salma");
       }
     }
     setIsAudioPlaying(!isAudioPlaying);

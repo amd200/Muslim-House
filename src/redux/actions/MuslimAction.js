@@ -1,4 +1,4 @@
-import { AllSurah, audio, azkarMorning, quotes, radios, reciters, riwayats, search, surah, videosYoutube, azan } from "../types/Types";
+import { AllSurah, audio, azkarMorning, quotes, radios, reciters, riwayats, search, surah, videosYoutube } from "../types/Types";
 import azkars from "../Api/azkar.json";
 import quotesJson from "../Api/Quotes.json";
 import quran from "../Api/Quran.json";

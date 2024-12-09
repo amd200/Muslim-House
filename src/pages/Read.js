@@ -44,12 +44,14 @@ function Read() {
     setHiddenAyahs(!hiddenAyahs);
   };
   const showAyah = (id) => {
-    if (ayahs) {
-      const ayah = ayahs.find((ayah) => ayah.id === id);
-      if (ayah && !displayedAyahs.find((a) => a.id === id)) {
-        setDisplayedAyahs((prev) => [...prev, ayah]);
+    setDisplayedAyahs((prev) => {
+      if (!prev.some((ayah) => ayah.id === id)) {
+        const ayah = ayahs.find((ayah) => ayah.id === id);
+        console.log(ayah);
+        return [...prev, ayah];
       }
-    }
+      return prev;
+    });
   };
   return (
     <>
@@ -57,14 +59,13 @@ function Read() {
         {hiddenAyahs ? <FaEyeSlash /> : <FaEye />}
       </div>
 
-      <div className="container mt-4" style={{userSelect: "none"}}>
+      <div className="container mt-4" style={{ userSelect: "none" }}>
         <h3 className="name text-center">سورة {data && data.length > 0 && data[surahId - 1].name}</h3>
         <div id="quran" className="p-3 mt-4">
           <p>
             {ayahs.map((ayah) => (
               <React.Fragment key={ayah.id}>
-                {hiddenAyahs ? displayedAyahs.find((a) => a.id === ayah.id) && <span className="quran">{ayah.text}</span> : <span className="quran">{ayah.text}</span>}
-
+                <span className={`quran ${hiddenAyahs && !displayedAyahs.some((a) => a.id === ayah.id) ? "invisible" : "visible"}`}>{ayah.text}</span>
                 <span onClick={() => showAyah(ayah.id)} className="icon mx-3" style={{ cursor: "pointer" }}>
                   {` \ufd3f${ayah.id.toLocaleString("AR-EG")}\ufd3e `}
                 </span>

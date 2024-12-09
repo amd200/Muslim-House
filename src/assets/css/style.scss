@@ -282,7 +282,7 @@ body {
 }
 nav {
   background-color: var(--color-background);
-
+  z-index: 10;
   .navbar-brand {
     font-family: "Noto Regular";
     color: var(--color-text-primary) !important;
@@ -328,7 +328,7 @@ nav {
   padding: 8px 12px;
   border-radius: 5px;
   color: var(--color-primary);
-  z-index: -1;
+  z-index: 2;
 }
 #quran {
   color: var(--color-text-primary);

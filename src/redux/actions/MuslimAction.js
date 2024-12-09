@@ -126,16 +126,16 @@ export const youtube = (playlistIds) => {
   };
 };
 
-export const prayerTimes = (latitude, longitude) => {
-  return async (dispatch) => {
-    try {
-      const res = await axios.get(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=5`);
-      dispatch({
-        type: azan,
-        data: res.data.data.timings,
-      });
-    } catch (error) {
-      console.error("Error fetching reciters audio:", error);
-    }
-  };
-};
+// export const prayerTimes = (latitude, longitude) => {
+//   return async (dispatch) => {
+//     try {
+//       const res = await axios.get(`https://api.aladhan.com/v1/timings?latitude=${latitude}&longitude=${longitude}&method=5`);
+//       dispatch({
+//         type: azan,
+//         data: res.data.data.timings,
+//       });
+//     } catch (error) {
+//       console.error("Error fetching reciters audio:", error);
+//     }
+//   };
+// };

@@ -29,7 +29,7 @@ const Navbar = ({ setIsMenuOpen, setAudio, audio, isAudioPlaying, setIsAudioPlay
         setDark(false);
       }
     };
-  }, []); 
+  }, []);
 
   return (
     <nav className={`navbar navbar-expand-lg ${dark ? "navbar-dark" : "navbar-light"} py-4`}>
@@ -63,6 +63,11 @@ const Navbar = ({ setIsMenuOpen, setAudio, audio, isAudioPlaying, setIsAudioPlay
                     <li className="mb-2 py-2">
                       <NavLink className="dropdown-item" to="/AzkarEvening">
                         أذكار المساء
+                      </NavLink>
+                    </li>
+                    <li className="mb-2 py-2">
+                      <NavLink className="dropdown-item" to="/AzkarPrayer">
+                        أذكار الصلاة
                       </NavLink>
                     </li>
                   </ul>

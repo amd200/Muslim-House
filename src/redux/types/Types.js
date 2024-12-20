@@ -9,3 +9,4 @@ export const audio = "audio";
 export const search = "search";
 export const videosYoutube = "videosYoutube";
 export const radios = "radios";
+export const AzkarPrayer = "AzkarPrayer";

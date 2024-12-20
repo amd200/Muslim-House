@@ -13,6 +13,7 @@ import Stories from "./pages/Stories";
 import RiwayatsPage from "./pages/RiwayatsPage";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import { Analytics } from "@vercel/analytics/react";
+import AzkarPrayer from "./pages/AzkarPrayer";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [audio, setAudio] = useState("");
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home enableAudioAzan={enableAudioAzan} />}></Route>
         <Route path="/Reciters" element={<Reciters />}></Route>
         <Route path="/quran/:recitersId/" element={<RiwayatsPage />}></Route>
+        <Route path="/AzkarPrayer" element={<AzkarPrayer />}></Route>
         <Route path="/quran/:recitersId/:riwayatId" element={<QuranPage />}></Route>
         <Route path="/quran/:recitersId/:riwayatId/:surahId" element={<Read />}></Route>
         <Route path="/AzkarMornig" element={<AzkarMornig />}></Route>

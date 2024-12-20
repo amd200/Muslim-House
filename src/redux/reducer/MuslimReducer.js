@@ -1,4 +1,4 @@
-import { AllSurah, audio, azkarMorning, quotes, reciters, riwayats, search, surah, videosYoutube, radios } from "../types/Types";
+import { AllSurah, audio, azkarMorning, quotes, reciters, riwayats, search, surah, videosYoutube, radios, AzkarPrayer } from "../types/Types";
 
 const initialState = {
   AllSurah: [],
@@ -70,6 +70,12 @@ export const MuslimReducer = (state = initialState, action) => {
       return {
         ...state,
         youtube: action.data,
+        loading: false,
+      };
+    case AzkarPrayer:
+      return {
+        ...state,
+        azkar: action.data,
         loading: false,
       };
     default:

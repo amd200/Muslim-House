@@ -1,41 +1,85 @@
-import { AllSurah, audio, azkarMorning, quotes, radios, reciters, riwayats, search, surah, videosYoutube } from "../types/Types";
-import azkars from "../Api/azkar.json";
-import quotesJson from "../Api/Quotes.json";
-import quran from "../Api/Quran.json";
+import { AllSurah, audio, azkarMorning, AzkarPrayer, quotes, radios, reciters, riwayats, search, surah, videosYoutube } from "../types/Types";
 import axios from "axios";
 
 export const getAllSurah = () => {
   return {
     type: AllSurah,
-    data: quran,
+    data: require("../Api/Quran.json"),
   };
 };
 
 export const getSurah = () => {
-  return {
-    type: surah,
-    data: quran,
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${process.env.PUBLIC_URL}/Quran.json`);
+      const data = await res.json();
+      dispatch({
+        type: surah,
+        data: data,
+      });
+    } catch (error) {
+      console.error("Error fetching Surah:", error);
+    }
   };
 };
 
 export const getAzkarMorning = () => {
-  return {
-    type: azkarMorning,
-    data: azkars.slice(0, 30),
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${process.env.PUBLIC_URL}/azkar.json`);
+      const data = await res.json();
+      dispatch({
+        type: azkarMorning,
+        data: data.slice(0, 30), // تقسيم البيانات هنا كما كنت تفعل سابقًا
+      });
+    } catch (error) {
+      console.error("Error fetching Azkar Morning:", error);
+    }
   };
 };
 
 export const getAzkarEvening = () => {
-  return {
-    type: azkarMorning,
-    data: azkars.slice(31, 60),
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${process.env.PUBLIC_URL}/azkar.json`);
+      const data = await res.json();
+      dispatch({
+        type: azkarMorning,
+        data: data.slice(31, 60), // تقسيم البيانات هنا كما كنت تفعل سابقًا
+      });
+    } catch (error) {
+      console.error("Error fetching Azkar Evening:", error);
+    }
+  };
+};
+
+export const getAzkarPrayer = () => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${process.env.PUBLIC_URL}/azkarPrayer.json`);
+      const data = await res.json();
+      dispatch({
+        type: AzkarPrayer,
+        data: data,
+      });
+    } catch (error) {
+      console.error("Error fetching Azkar Prayer:", error);
+    }
   };
 };
 
 export const Quotes = () => {
-  return {
-    type: quotes,
-    data: quotesJson,
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${process.env.PUBLIC_URL}/Quotes.json`);
+      const data = await res.json();
+      dispatch({
+        type: quotes,
+        data: data,
+      });
+    } catch (error) {
+      console.error("Error fetching Quotes:", error);
+    }
   };
 };
 export const getAllReciters = () => {

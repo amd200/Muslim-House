@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    
+
     <meta name="description" content="بيت المسلم هو موقع شامل يسعى لنشر القيم الإسلامية وتعزيز الثقافة الدينية بأسلوب بسيط وحديث. يقدم مجموعة متنوعة من الموارد المفيدة بما في ذلك كتب دينية، مقالات توعوية، نصائح اجتماعية، وأدوات تعليمية تساعد الأسرة المسلمة على بناء حياة متوازنة مليئة بالإيمان والمعرفة. انضم إلينا لتجد السكينة والرشاد في بيت المسلم!" />
     <meta property="og:title" content="بيت المسلم - Muslim House" />
     <meta property="og:description" content="بيت المسلم هو موقع شامل يسعى لنشر القيم الإسلامية وتعزيز الثقافة الدينية بأسلوب بسيط وحديث. يقدم مجموعة متنوعة من الموارد المفيدة." />
@@ -15,7 +15,7 @@
     <meta name="twitter:title" content="بيت المسلم - Muslim House" />
     <meta name="twitter:description" content="بيت المسلم هو موقع شامل يسعى لنشر القيم الإسلامية وتعزيز الثقافة الدينية بأسلوب بسيط وحديث. يقدم مجموعة متنوعة من الموارد المفيدة." />
     <meta name="twitter:image" content="%PUBLIC_URL%/logo192.png" />
-    
+
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -24,5 +24,20 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- في ملف public/index.html -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+              console.log("Service Worker registered with scope:", registration.scope);
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

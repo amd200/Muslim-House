@@ -4,10 +4,10 @@ const urlsToCache = [
   "/index.html",
   "/static/js/bundle.js", // أضف المسارات التي تحتاج تخزينها هنا
   "/static/css/main.css",
-  "/public/azkar.json", // المسارات الخاصة بالملفات في مجلد public
-  "/public/Quotes.json",
-  "/public/Quran.json",
-  "/public/azkarPrayer.json",
+  "/azkar.json", // المسارات الخاصة بالملفات في مجلد public
+  "/Quotes.json",
+  "/Quran.json",
+  "/azkarPrayer.json",
 ];
 
 // التثبيت
@@ -15,7 +15,9 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Service Worker: Caching files during install");
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch((error) => {
+        console.error("Service Worker: Error caching files", error);
+      });
     })
   );
 });
@@ -38,38 +40,30 @@ self.addEventListener("activate", (event) => {
 
 // التعامل مع الطلبات
 self.addEventListener("fetch", (event) => {
-  // تجاهل أي طلب من إضافات كروم
-  if (event.request.url.startsWith("chrome-extension://")) {
-    return;
-  }
-
-  // تجاهل طلبات POST
-  if (event.request.method !== "GET") {
-    console.log(`Service Worker: Skipping caching for non-GET request: ${event.request.method} ${event.request.url}`);
-    return;
-  }
-
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((cachedResponse) => {
-        // إذا كان الطلب موجودًا في الكاش، استخدمه
-        if (cachedResponse) {
-          console.log(`Service Worker: Serving cached response for ${event.request.url}`);
-          return cachedResponse;
-        }
+    caches.match(event.request).then((cachedResponse) => {
+      // إذا كان الطلب موجودًا في الكاش، استخدمه
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
-        // إذا لم يكن موجودًا في الكاش، استرده من الشبكة
-        return fetch(event.request).then((response) => {
-          return caches.open(CACHE_NAME).then((cache) => {
+      // إذا لم يكن موجودًا في الكاش، استرده من الشبكة
+      return fetch(event.request).then((response) => {
+        // إذا كانت استجابة الطلب بنجاح، خزّنها في الكاش
+        return caches.open(CACHE_NAME).then((cache) => {
+          if (response.status === 200) {
             cache.put(event.request, response.clone());
-            console.log(`Service Worker: Caching new response for ${event.request.url}`);
-            return response;
-          });
+          }
+          return response;
         });
-      })
-      .catch((error) => {
-        console.log("Service Worker: Fetch failed.", error);
-      })
+      });
+    })
   );
+});
+
+// تأكد من أن جميع الملفات تم تخزينها في الكاش بنجاح
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.action === "skipWaiting") {
+    self.skipWaiting();
+  }
 });

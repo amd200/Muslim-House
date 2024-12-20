@@ -14,7 +14,7 @@ const urlsToCache = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("Caching files during install");
+      console.log("Service Worker: Caching files during install");
       return cache.addAll(urlsToCache);
     })
   );
@@ -38,20 +38,38 @@ self.addEventListener("activate", (event) => {
 
 // التعامل مع الطلبات
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      // إذا كان الطلب موجودًا في الكاش، استخدمه
-      if (cachedResponse) {
-        return cachedResponse;
-      }
+  // تجاهل أي طلب من إضافات كروم
+  if (event.request.url.startsWith("chrome-extension://")) {
+    return;
+  }
 
-      // إذا لم يكن موجودًا في الكاش، استرده من الشبكة
-      return fetch(event.request).then((response) => {
-        return caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, response.clone());
-          return response;
+  // تجاهل طلبات POST
+  if (event.request.method !== "GET") {
+    console.log(`Service Worker: Skipping caching for non-GET request: ${event.request.method} ${event.request.url}`);
+    return;
+  }
+
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then((cachedResponse) => {
+        // إذا كان الطلب موجودًا في الكاش، استخدمه
+        if (cachedResponse) {
+          console.log(`Service Worker: Serving cached response for ${event.request.url}`);
+          return cachedResponse;
+        }
+
+        // إذا لم يكن موجودًا في الكاش، استرده من الشبكة
+        return fetch(event.request).then((response) => {
+          return caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, response.clone());
+            console.log(`Service Worker: Caching new response for ${event.request.url}`);
+            return response;
+          });
         });
-      });
-    })
+      })
+      .catch((error) => {
+        console.log("Service Worker: Fetch failed.", error);
+      })
   );
 });

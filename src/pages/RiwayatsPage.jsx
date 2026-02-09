@@ -11,18 +11,21 @@ function RiwayatsPage() {
   const { recitersId } = useParams();
   const recitersIdInt = parseInt(recitersId);
   useEffect(() => {
-    dispatch(getAllRiwayats());
+    dispatch(getAllRiwayats(recitersId));
   }, [dispatch]);
-  const foundRiwayat = loading === false && riwayats ? riwayats.find(item => item.id === recitersIdInt) : null;
+
+  const foundRiwayat = loading === false && riwayats ? riwayats.find((item) => item.id === recitersIdInt) : null;
   return (
     <div className="content">
       <div className="container mt-4">
         <div className="row justify-content-center" id="reciters">
           {!loading && riwayats && riwayats.length >= 1 && foundRiwayat && foundRiwayat.moshaf ? (
             foundRiwayat.moshaf.map((item, i) => <Card key={i} dataRiwayats={item} />)
-          ) : <div class="spinner-border text-success my-5" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>}
+          ) : (
+            <div class="spinner-border text-success my-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

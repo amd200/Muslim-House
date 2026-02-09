@@ -110,7 +110,7 @@ export const getAllRiwayats = (id) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(`https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}`);
-
+console.log(res)
       dispatch({
         type: riwayats,
         data: res.data,

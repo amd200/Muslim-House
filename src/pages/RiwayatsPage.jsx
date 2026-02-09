@@ -12,7 +12,7 @@ function RiwayatsPage() {
   const recitersIdInt = parseInt(recitersId);
   useEffect(() => {
     dispatch(getAllRiwayats(recitersId));
-  }, [dispatch]);
+  }, [dispatch, recitersId]);
 
   const foundRiwayat = loading === false && riwayats ? riwayats.find((item) => item.id === recitersIdInt) : null;
   return (

@@ -84,11 +84,15 @@ export const Quotes = () => {
 };
 export const getAllReciters = () => {
   return async (dispatch) => {
-    const res = await axios.get("https://www.mp3quran.net/api/v3/reciters?language=ar");
-    dispatch({
-      type: reciters,
-      data: res.data,
-    });
+    try {
+      const res = await axios.get("https://www.mp3quran.net/api/v3/reciters?language=ar");
+      dispatch({
+        type: reciters,
+        data: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 export const getReciterAudios = (id, riwaya) => {
@@ -110,7 +114,7 @@ export const getAllRiwayats = (id) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(`https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${id}`);
-console.log(res)
+      console.log(res);
       dispatch({
         type: riwayats,
         data: res.data,
@@ -157,7 +161,7 @@ export const youtube = (playlistIds) => {
         playlistIds.map(async (playlistId) => {
           const res = await axios.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${apiKey}`);
           return res.data.items;
-        })
+        }),
       );
 
       dispatch({
